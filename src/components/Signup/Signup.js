@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 
 const Signup = () => {
-    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth)
+    const navigate = useNavigate();
+    const [createUserWithEmailAndPassword, user, loading] = useCreateUserWithEmailAndPassword(auth)
     const [agree, setAgree] = useState(false);
     const handleSignup = e => {
         e.preventDefault();
@@ -12,8 +14,17 @@ const Signup = () => {
         const email = inputFeildValus.email.value;
         const password = inputFeildValus.password.value;
         createUserWithEmailAndPassword(email, password);
-        console.log(password)
     }
+    useEffect((() => {
+        if (user) {
+            navigate('/')
+        }
+    }), [user, navigate])
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+
     return (
         <div className='register-form'>
             <h2 style={{ textAlign: 'center' }}>Please Register</h2>

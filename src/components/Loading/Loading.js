@@ -3,7 +3,7 @@ import React from 'react';
 const Loading = () => {
     return (
         <div>
-            <div>...loading.....</div>
+            <div className='text-center'>...loading.....</div>
         </div>
     );
 };
