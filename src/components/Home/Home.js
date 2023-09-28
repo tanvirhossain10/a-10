@@ -21,7 +21,7 @@ const Home = () => {
             <div className="" >
                 <img style={{ height: "10%" }} className='w-100 ' src={banner} alt="" />
             </div>
-            <div className="service-section row mt-3 ">
+            <div className="service-section row mt-3 mb-5">
                 <h2 className='text-warning text-center'>Our Services</h2>
                 {
                     services.map(service => <Service servic={service} key={service.id}></Service>)
