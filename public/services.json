@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "1-ON-1 PERSONAL TRAINING",
+        "price": 300,
+        "img": "https://i.ibb.co/cynkg84/g1.jpg",
+        "body": "We provide 1-on-1 personal training in Boulder for women and men ages 12 and up at Judd's Gym in Gunbarrel. Whatever your fitness goals, we'll help you get there with proven methods, consistency and support."
+    },
+    {
+        "id": 2,
+        "name": "ONLINE PERSONAL TRAINING",
+        "price": 200,
+        "img": "https://i.ibb.co/MsFgChQ/g2.jpg",
+        "body": "Compared to 1-on-1 personal training, you get to workout on your own schedule while maximizing your savings. Our monthly online personal training is ideal for those who believe the frequency of weekly in-person training to be too expensive. Gym or no gym, we have you covered​"
+    },
+    {
+        "id": 3,
+        "name": "THE AGELESS FITNESS FORMULA",
+        "price": 500,
+        "img": "https://i.ibb.co/xmv1D1N/g3.jpg",
+        "body": "We also offer an online personal training platform for men & women ages 50+ who are seeking to rebuild a stronger and more youthful looking physique while minimizing aches and pains."
+    }
+]

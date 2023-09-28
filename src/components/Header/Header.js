@@ -9,7 +9,7 @@ const Header = () => {
         ' lg="bg-danger">
 
 
-            <NavLink className='text-decoration-none text-secondary-emphasis' to="/services">Services</NavLink>
+            <NavLink className='text-decoration-none text-secondary-emphasis' to="/">Home</NavLink>
             <NavLink className='text-decoration-none text-secondary-emphasis' to="/blogs">Blogs</NavLink>
             <NavLink className='text-decoration-none text-secondary-emphasis' to="/Login">Login</NavLink>
             <NavLink className='text-decoration-none text-secondary-emphasis' to="/signup">Signup</NavLink>
