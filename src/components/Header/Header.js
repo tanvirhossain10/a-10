@@ -19,7 +19,6 @@ const Header = () => {
 
 
             <NavLink className='text-decoration-none text-secondary-emphasis' to="/">Home</NavLink>
-            <NavLink className='text-decoration-none text-secondary-emphasis' to="/checkout" >Checkout</NavLink>
             <NavLink className='text-decoration-none text-secondary-emphasis' to="/blogs">Blogs</NavLink>
             {!user ? <NavLink className='text-decoration-none text-secondary-emphasis' to="/login">Login</NavLink> : ''}
             {user ? <NavLink className="className='text-decoration-none text-secondary-emphasis" to="/login" onClick={handleSignOut}>SignOut</NavLink> : <NavLink className='text-decoration-none text-secondary-emphasis' to="/signup">Signup</NavLink>}

@@ -2,15 +2,12 @@ import React, { useEffect, useState } from 'react';
 import banner from "../../images/carosol/homepage2.jpg"
 import Service from '../Serive/Service';
 import Footer from '../Footer/Footer';
+import BuyingForm from '../BuyifngForm/BuyingForm';
+import useService from '../../hooks/useService';
 
 const Home = () => {
-    const [services, setServices] = useState([]);
-    useEffect((() => {
-        fetch('services.json')
-            .then(res => res.json())
-            .then(data => setServices(data))
 
-    }), [])
+    const [services] = useService();
     return (
         <div className='container'>
 

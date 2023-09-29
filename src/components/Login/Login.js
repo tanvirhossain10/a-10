@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
+import "./Login.css"
 import { Button, Form, Nav } from 'react-bootstrap';
 import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
@@ -8,6 +9,7 @@ import Home from '../Home/Home';
 import Example from '../Example/Example';
 import Loading from '../Loading/Loading';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { BingContext } from '../NofFound/NotFound';
 
 
 const Login = () => {
@@ -49,15 +51,10 @@ const Login = () => {
         return <Loading></Loading>
     }
 
-    // useEffect(() => {
-    //     if (user) {
-    //         navigate("/")
-    //     }
-    // }, [user, navigate])
-    console.log(user1)
+
 
     return (
-        <div className='container w-50 mx-auto'>
+        <div className='container w-50 mx-auto heigt'>
             <h2 className='text-primary text-center mt-2'>Please Login</h2>
             <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

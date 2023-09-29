@@ -5,6 +5,7 @@ import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
 
 const Signup = () => {
+
     const navigate = useNavigate();
     const [createUserWithEmailAndPassword, user, loading] = useCreateUserWithEmailAndPassword(auth)
     const [agree, setAgree] = useState(false);
@@ -23,6 +24,7 @@ const Signup = () => {
     if (loading) {
         return <Loading></Loading>
     }
+
 
 
     return (
