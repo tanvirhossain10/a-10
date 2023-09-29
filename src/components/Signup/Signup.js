@@ -1,20 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
+import { sendEmailVerification } from 'firebase/auth';
 
 const Signup = () => {
 
     const navigate = useNavigate();
-    const [createUserWithEmailAndPassword, user, loading] = useCreateUserWithEmailAndPassword(auth)
+    const [createUserWithEmailAndPassword, user, loading] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
     const [agree, setAgree] = useState(false);
-    const handleSignup = e => {
+    const handleSignup = async e => {
         e.preventDefault();
         const inputFeildValus = e.target;
         const email = inputFeildValus.email.value;
         const password = inputFeildValus.password.value;
-        createUserWithEmailAndPassword(email, password);
+        const succes = await sendEmailVerification(email);
+        await createUserWithEmailAndPassword(email, password);
+        if (error) {
+            console.log(error)
+        }
+        if (succes) {
+            alert('sent email')
+        }
+
     }
     useEffect((() => {
         if (user) {

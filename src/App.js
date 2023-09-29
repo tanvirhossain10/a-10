@@ -10,6 +10,7 @@ import ReqiureAuth from './components/RequireAuth/ReqiureAuth';
 import CheckOut from './components/CheckOut/CheckOut';
 import NotFound from './components/NofFound/NotFound';
 import BuyingForm from './components/BuyifngForm/BuyingForm';
+import ResetPassword from './components/ResetPassword/ResetPassword';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
+        <Route path='/resetpass' element={<ResetPassword></ResetPassword>}></Route>
         <Route path='/checkout' element={<ReqiureAuth>
           <CheckOut></CheckOut>
         </ReqiureAuth>}></Route>
