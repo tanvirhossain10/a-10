@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import "./Login.css"
-import { Button, Form, Nav } from 'react-bootstrap';
+import { Button, Form, Nav, NavLink } from 'react-bootstrap';
 import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -71,7 +71,10 @@ const Login = () => {
             </Form>
 
             <p>New to in hard fitness? <Link to="/signup" className='text-primary pe-auto text-decoration-none' >Please Signup</Link> </p>
-            <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' >Reset Password</button> </p>
+            {
+                !user1 && <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={() => navigate("/resetpass")}>Reset password </button> </p>
+            }
+
             {/* <SocialLogin></SocialLogin> */}
             {/* <ToastContainer /> */}
         </div>

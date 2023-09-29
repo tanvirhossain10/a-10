@@ -9,7 +9,6 @@ const Service = ({ servic }) => {
 
     const navigate = useNavigate();
     const handleCheckOut = async e => {
-        console.log(e)
 
         await navigate("/checkout", { state: e });
 

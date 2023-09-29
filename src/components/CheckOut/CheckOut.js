@@ -5,7 +5,6 @@ const CheckOut = () => {
     const location = useLocation();
     const data = location.state;
     const { name, img, body } = data;
-    console.log(name)
     const navigate = useNavigate();
     const [buy, setBuy] = useState(true);
     const [notBuy, setNotBuy] = useState(true);

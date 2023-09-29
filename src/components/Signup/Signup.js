@@ -41,11 +41,11 @@ const Signup = () => {
         <div className='register-form'>
             <h2 style={{ textAlign: 'center' }}>Please Register</h2>
             <form onSubmit={handleSignup}>
-                <input type="text" className='d-block w-25 mx-auto mt-2' name="name" id="" placeholder='Your Name' />
+                <input type="text" className='d-block w-25 mx-auto mt-2' name="name" placeholder='Your Name' />
 
-                <input type="email" name="email" className='d-block w-25 mx-auto mt-2' id="" placeholder='Email Address' required />
+                <input type="email" name="email" className='d-block w-25 mx-auto mt-2' placeholder='Email Address' required />
 
-                <input type="password" className='d-block w-25 mx-auto mt-2' name="password" id="" placeholder='Password' required />
+                <input type="password" className='d-block w-25 mx-auto mt-2' name="password" placeholder='Write your password' required />
                 <div className='d-flex items-center mx-auto w-25'>
 
 
