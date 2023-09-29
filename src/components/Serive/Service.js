@@ -1,22 +1,20 @@
+
 import React, { createContext, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useHistory, useNavigate, useParams } from 'react-router-dom';
 import CheckOut from '../CheckOut/CheckOut';
 import BuyingForm from '../BuyifngForm/BuyingForm';
 export const RingContext = createContext('diamond');
 const Service = ({ servic }) => {
-    const [set, setSet] = useState(1);
-    const [selectedService, setSelelctedService] = useState([]);
 
 
     const navigate = useNavigate();
     const handleCheckOut = async e => {
-        const { name, id, img, body, price } = e;
+        console.log(e)
 
-        await navigate("/checkout");
+        await navigate("/checkout", { state: e });
 
     }
     const { name, price, body, img } = servic;
-
 
     ;
 

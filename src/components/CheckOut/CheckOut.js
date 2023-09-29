@@ -1,8 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { RingContext, SelectedServiceContext } from '../Serive/Service';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const CheckOut = () => {
+    const location = useLocation();
+    const data = location.state;
+    const { name, img, body } = data;
+    console.log(name)
     const navigate = useNavigate();
     const [buy, setBuy] = useState(true);
     const [notBuy, setNotBuy] = useState(true);
@@ -19,10 +22,17 @@ const CheckOut = () => {
 
 
     return (
-        <div>
-            <h2>Do you sure want to buy the service</h2>
-            <button onClick={handleBuy}>Yes</button> <button onClick={handleIgnore}> No</button>
-            <div className="particularService">
+        <div className='container w-50 my-5'>
+            <h2>Your selected service information:</h2>
+            <h3>{name}</h3>
+            <img src={img} alt="" />
+            <p>
+                <small>{body}</small>
+            </p>
+            <div className='w-50 mx-auto '>
+                <button className='bg-primary text-white px-5' onClick={handleBuy}>Yes</button> <button onClick={handleIgnore} className='bg-danger text-white px-5'> No</button>
+                <div className="particularService">
+                </div>
             </div>
         </div>
     );
