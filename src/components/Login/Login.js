@@ -10,6 +10,7 @@ import Example from '../Example/Example';
 import Loading from '../Loading/Loading';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { BingContext } from '../NofFound/NotFound';
+import SocialLogin from '../SocaliLogin/SocialLogin';
 
 
 const Login = () => {
@@ -75,7 +76,7 @@ const Login = () => {
                 !user1 && <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={() => navigate("/resetpass")}>Reset password </button> </p>
             }
 
-            {/* <SocialLogin></SocialLogin> */}
+            <SocialLogin></SocialLogin>
             {/* <ToastContainer /> */}
         </div>
     );
