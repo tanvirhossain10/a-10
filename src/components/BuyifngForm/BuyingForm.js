@@ -4,7 +4,8 @@ import useService from '../../hooks/useService';
 // import { useParams } from 'react-router-dom';
 
 const BuyingForm = () => {
-
+    // const { checkoutId } = useParams();
+    // console.log(checkoutId)
     return (
         <div>
             <h2>Thanks for buying the service.All necessary information will provide to your email.</h2>

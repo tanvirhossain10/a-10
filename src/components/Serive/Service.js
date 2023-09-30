@@ -7,13 +7,16 @@ export const RingContext = createContext('diamond');
 const Service = ({ servic }) => {
 
 
+
+
     const navigate = useNavigate();
     const handleCheckOut = async e => {
 
-        await navigate("/checkout", { state: e });
+        await navigate("/checkout/" + e.id, { state: e });
 
     }
-    const { name, price, body, img } = servic;
+    const { name, price, body, img, id } = servic;
+
 
     ;
 

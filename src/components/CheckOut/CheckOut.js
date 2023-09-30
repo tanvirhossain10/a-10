@@ -4,13 +4,13 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 const CheckOut = () => {
     const location = useLocation();
     const data = location.state;
-    const { name, img, body } = data;
+    const { name, img, body, id } = data;
     const navigate = useNavigate();
     const [buy, setBuy] = useState(true);
     const [notBuy, setNotBuy] = useState(true);
     const handleBuy = () => {
         if (buy) {
-            navigate("/checkout/buy");
+            navigate(`/checkout/${+id}/buy`);
         }
     }
     const handleIgnore = () => {

@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/Header';
-import { Route, Router, Routes, useNavigate } from 'react-router-dom';
+import { Route, Router, Routes, useNavigate, useParams } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
@@ -18,6 +18,7 @@ import { useEffect } from 'react';
 function App() {
   const [user] = useAuthState(auth);
   const navigate = useNavigate()
+  // const { checkoutId } = useParams();
 
   useEffect((() => {
 
@@ -38,15 +39,15 @@ function App() {
           <Route path='/resetpass' element={<ResetPassword></ResetPassword>}></Route>
         }
 
-        <Route path='/checkout' element={<ReqiureAuth>
+        <Route path='/checkout/:checkoutId' element={<ReqiureAuth>
           <CheckOut></CheckOut>
         </ReqiureAuth>}></Route>
-        <Route path='/checkout/:id' element={<ReqiureAuth><BuyingForm></BuyingForm></ReqiureAuth>}></Route>
-
+        {/* <Route path='/u' element={<ReqiureAuth><BuyingForm></BuyingForm></ReqiureAuth>}></Route> */}
+        <Route path='checkout/:id/buy' element={<BuyingForm></BuyingForm>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
-    </div>
+    </div >
   );
 }
 

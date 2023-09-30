@@ -4,8 +4,10 @@ import Service from '../Serive/Service';
 import Footer from '../Footer/Footer';
 import BuyingForm from '../BuyifngForm/BuyingForm';
 import useService from '../../hooks/useService';
+import { useParams } from 'react-router-dom';
 
 const Home = () => {
+    const checkOutId = useParams();
 
     const [services] = useService();
     return (
