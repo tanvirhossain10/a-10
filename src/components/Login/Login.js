@@ -51,6 +51,10 @@ const Login = () => {
     if (loading) {
         return <Loading></Loading>
     }
+    if (error) {
+        console.error(error);
+
+    }
 
 
 
@@ -64,6 +68,9 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
+                {
+                    error && <p className='text-danger'> Password and email don't match</p>
+                }
 
                 <Button variant="primary w-50 mx-auto d-block mb-2" type="submit">
                     Login
