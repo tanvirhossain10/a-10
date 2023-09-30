@@ -14,6 +14,7 @@ import ResetPassword from './components/ResetPassword/ResetPassword';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import { useEffect } from 'react';
+import Blog from './Blog/Blog';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -23,7 +24,7 @@ function App() {
   useEffect((() => {
 
     if (user?.email) {
-      navigate('/')
+      // navigate('/')
     }
   }), [user])
 
@@ -33,17 +34,22 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        {!user && <Route path='/login' element={<Login></Login>}></Route>}
+        <Route path='/blog' element={<ReqiureAuth><Blog></Blog></ReqiureAuth>}></Route>
+        {/* {!user && <Route path='/login' element={<Login></Login>}></Route>} */}
+        <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         {
           <Route path='/resetpass' element={<ResetPassword></ResetPassword>}></Route>
         }
 
-        <Route path='/checkout/:checkoutId' element={<ReqiureAuth>
+        <Route path='/checkout/:id' element={
           <CheckOut></CheckOut>
+        }></Route>
+        {/* <Route path='/checkout/:id/buy' element={<BuyingForm></BuyingForm>}></Route> */}
+        <Route path='/checkout/:id/buy' element={<ReqiureAuth><BuyingForm></BuyingForm></ReqiureAuth>}></Route>
+        <Route path='not' element={<ReqiureAuth>
+          <NotFound></NotFound>
         </ReqiureAuth>}></Route>
-        {/* <Route path='/u' element={<ReqiureAuth><BuyingForm></BuyingForm></ReqiureAuth>}></Route> */}
-        <Route path='checkout/:id/buy' element={<BuyingForm></BuyingForm>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

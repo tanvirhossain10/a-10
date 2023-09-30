@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import "./Login.css"
 import { Button, Form, Nav, NavLink } from 'react-bootstrap';
 import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 // import Loading from '../Loading/Loading';
 import Home from '../Home/Home';
@@ -14,6 +14,7 @@ import SocialLogin from '../SocaliLogin/SocialLogin';
 
 
 const Login = () => {
+    const { checkoutId } = useParams();
     const navigate = useNavigate();
     const [user1] = useAuthState(auth);
     const location = useLocation();
@@ -26,6 +27,11 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user, navigate])
     const handleLogin = async e => {
         e.preventDefault();
         const inputFeildValue = e.target;
@@ -33,20 +39,29 @@ const Login = () => {
         const password = inputFeildValue.password.value;
         await signInWithEmailAndPassword(email, password);
 
-        if (user) {
-            // navigate('/blog')
-        }
+        // if (user) {
+        //     // navigate('/checkout')
+        //     console.log(error)
+        // }
 
 
 
 
 
     }
-    useEffect(() => {
-        if (user) {
-            navigate(from, { replace: true });
-        }
-    }, [user, navigate])
+    if (error) {
+        console.log(error)
+    }
+    if (loading) {
+        return <Loading></Loading>
+    }
+    // console.log('hey')
+    if (user) {
+        // console.log('hey')
+        // navigate(from, { replace: true })
+        // let from = location.state?.from?.pathname || "/";
+    }
+
 
     if (loading) {
         return <Loading></Loading>

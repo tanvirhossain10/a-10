@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import NotFound from '../NofFound/NotFound';
 
 const CheckOut = () => {
     const location = useLocation();
     const data = location.state;
-    const { name, img, body, id } = data;
+    const { name, img, body, id } = data || {};
+
+
     const navigate = useNavigate();
     const [buy, setBuy] = useState(true);
     const [notBuy, setNotBuy] = useState(true);
@@ -18,6 +21,7 @@ const CheckOut = () => {
             navigate('/')
         }
     }
+
 
 
     return (
