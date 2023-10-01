@@ -14,7 +14,8 @@ import ResetPassword from './components/ResetPassword/ResetPassword';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import { useEffect } from 'react';
-import Blog from './Blog/Blog';
+import Blog from './components/Blog/Blog';
+import AboutMe from './components/AboutMe/AboutMe';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -34,14 +35,14 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/blog' element={<ReqiureAuth><Blog></Blog></ReqiureAuth>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
         {/* {!user && <Route path='/login' element={<Login></Login>}></Route>} */}
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         {
           <Route path='/resetpass' element={<ResetPassword></ResetPassword>}></Route>
         }
-
+        <Route path='/about' element={<AboutMe></AboutMe>}></Route>
         <Route path='/checkout/:id' element={
           <CheckOut></CheckOut>
         }></Route>

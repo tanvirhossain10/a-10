@@ -28,7 +28,7 @@ const CheckOut = () => {
         <div className='container w-50 my-5'>
             <h2>Your selected service information:</h2>
             <h3>{name}</h3>
-            <img src={img} alt="" />
+            <img src={img} className='w-100' alt="" />
             <p>
                 <small>{body}</small>
             </p>

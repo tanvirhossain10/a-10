@@ -13,13 +13,14 @@ const Header = () => {
     return (
 
 
-        <nav className='d-lg-flex sticky-top mb-4 justify-content-around py-3 bg-info-subtle  align-items-center  text-secondary
+        <nav className='d-flex sticky-top mb-4 justify-content-around py-3 bg-info-subtle  align-items-center  text-secondary
 
         ' lg="bg-danger">
 
 
             <NavLink className='text-decoration-none text-secondary-emphasis' to="/">Home</NavLink>
-            <NavLink className='text-decoration-none text-secondary-emphasis' to="/blogs">Blogs</NavLink>
+            <NavLink className='text-decoration-none text-secondary-emphasis' to="/blog">Blogs</NavLink>
+            <NavLink className='text-decoration-none text-secondary-emphasis' to="about" >About</NavLink>
             {!user ? <NavLink className='text-decoration-none text-secondary-emphasis' to="/login">Login</NavLink> : ''}
             {user ? <NavLink className="className='text-decoration-none text-secondary-emphasis" to="/login" onClick={handleSignOut}>SignOut</NavLink> : <NavLink className='text-decoration-none text-secondary-emphasis' to="/signup">Signup</NavLink>}
         </nav>

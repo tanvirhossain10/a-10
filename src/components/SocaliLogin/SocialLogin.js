@@ -9,18 +9,21 @@ const SocialLogin = () => {
     const location = useLocation();
     const data = location.state;
     const { name, img, body, id } = data || {};
-    const [user] = useAuthState(auth)
+    // const [user] = useAuthState(auth)
     const navigate = useNavigate()
 
     let from = location?.state?.from?.pathname || "/";
     const [googleSignin, user1, loading, error] = useSignInWithGoogle(auth);
-    const handleGoogleSignIn = e => {
-        googleSignin();
+    const handleGoogleSignIn = async e => {
+        const success = await googleSignin();
+        if (success) {
+            navigate(from, { replace: true });
+        }
 
     }
     useEffect(() => {
-        if (user?.email) {
-            navigate('/');
+        if (user1?.email) {
+
 
         }
 

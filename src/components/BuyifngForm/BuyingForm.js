@@ -1,12 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import useService from '../../hooks/useService';
-// import { useParams } from 'react-router-dom';
 
-const BuyingForm = () => {
+const BuyingForm = (async) => {
+    const { id } = useParams();
+    const location = useLocation();
+    const data = location.state;
+    const { name, img, body, } = data || {};
+    useEffect(() => {
+        fetchItems();
 
-    // const { checkoutId } = useParams();
-    // console.log(checkoutId)
+    }, [])
+
+    const fetchItems = async () => {
+
+        fetch("/services.json")
+            .then(res => res.json())
+            .then(data => console.log(data))
+
+
+            ;
+    };
+
     return (
         <div>
             <h2>Thanks for buying the service.All necessary information will provide to your email.</h2>

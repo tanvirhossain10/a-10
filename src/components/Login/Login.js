@@ -14,10 +14,16 @@ import SocialLogin from '../SocaliLogin/SocialLogin';
 
 
 const Login = () => {
+    const location = useLocation();
+    //  navigate("/checkout/" + id, { state: e });
+    const data = location.state;
+    // const { name, img, body, id } = data || {};
+    // await navigate("/checkout/" + id, { state: e });
+    // const data = location.state;
+    const { name, img, body, id } = data || {};
     const { checkoutId } = useParams();
     const navigate = useNavigate();
     const [user1] = useAuthState(auth);
-    const location = useLocation();
     // const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
 
@@ -29,7 +35,8 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     useEffect(() => {
         if (user) {
-            navigate(from, { replace: true });
+            navigate(from, { replace: true },);
+            console.log(name)
         }
     }, [user, navigate])
     const handleLogin = async e => {
@@ -56,11 +63,11 @@ const Login = () => {
         return <Loading></Loading>
     }
     // console.log('hey')
-    if (user) {
-        // console.log('hey')
-        // navigate(from, { replace: true })
-        // let from = location.state?.from?.pathname || "/";
-    }
+    // if (user) {
+    //     // console.log('hey')
+    //     navigate(from, { replace: true })
+    //     // let from = location.state?.from?.pathname || "/";
+    // }
 
 
     if (loading) {
