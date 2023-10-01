@@ -16,7 +16,7 @@ const BuyingForm = (async) => {
 
         fetch("/services.json")
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => (data))
 
 
             ;

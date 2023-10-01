@@ -4,7 +4,6 @@ import { Button, Form, Nav, NavLink } from 'react-bootstrap';
 import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
-// import Loading from '../Loading/Loading';
 import Home from '../Home/Home';
 import Example from '../Example/Example';
 import Loading from '../Loading/Loading';
@@ -15,16 +14,11 @@ import SocialLogin from '../SocaliLogin/SocialLogin';
 
 const Login = () => {
     const location = useLocation();
-    //  navigate("/checkout/" + id, { state: e });
     const data = location.state;
-    // const { name, img, body, id } = data || {};
-    // await navigate("/checkout/" + id, { state: e });
-    // const data = location.state;
     const { name, img, body, id } = data || {};
     const { checkoutId } = useParams();
     const navigate = useNavigate();
     const [user1] = useAuthState(auth);
-    // const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
 
     const [
@@ -45,16 +39,6 @@ const Login = () => {
         const email = inputFeildValue.email.value;
         const password = inputFeildValue.password.value;
         await signInWithEmailAndPassword(email, password);
-
-        // if (user) {
-        //     // navigate('/checkout')
-        //     console.log(error)
-        // }
-
-
-
-
-
     }
     if (error) {
         console.log(error)
@@ -62,19 +46,12 @@ const Login = () => {
     if (loading) {
         return <Loading></Loading>
     }
-    // console.log('hey')
-    // if (user) {
-    //     // console.log('hey')
-    //     navigate(from, { replace: true })
-    //     // let from = location.state?.from?.pathname || "/";
-    // }
-
 
     if (loading) {
         return <Loading></Loading>
     }
     if (error) {
-        console.error(error);
+        // console.error(error);
 
     }
 
@@ -106,7 +83,6 @@ const Login = () => {
             }
 
             <SocialLogin></SocialLogin>
-            {/* <ToastContainer /> */}
         </div>
     );
 };

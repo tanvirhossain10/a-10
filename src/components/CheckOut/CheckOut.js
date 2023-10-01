@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import NotFound from '../NofFound/NotFound';
 
 const CheckOut = () => {
+    const { id } = useParams();
     const location = useLocation();
+    const [service, setService] = useState({})
     const data = location.state;
-    const { name, img, body, id } = data || {};
+    useEffect(() => {
+        fetch("/services.json")
+            .then((res) => res.json())
+            .then((data) => {
+                const filteredService = data.filter((serviceDetails) => serviceDetails.id === id * 1);
+                setService(...filteredService);
+            });
+    }, []);
+    const { name, img, body } = service;
 
 
     const navigate = useNavigate();
@@ -18,14 +27,14 @@ const CheckOut = () => {
     }
     const handleIgnore = () => {
         if (notBuy) {
-            navigate('/')
+            navigate('/');
         }
     }
 
 
 
     return (
-        <div className='container w-50 my-5'>
+        <div className='container w-50 my-5'>;
             <h2>Your selected service information:</h2>
             <h3>{name}</h3>
             <img src={img} className='w-100' alt="" />
